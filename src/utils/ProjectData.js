@@ -107,7 +107,7 @@ export const projects = [
     date: "2025-12",
     image: "/images/cofat-dashboard.jpg",
     github: "https://github.com/yourusername/cofat-dashboard",
-    demo: "https://cofat-dashboard.vercel.app",
+    demo: "https://https://cofat.netlify.app/",
     screenshots: {
       homeLight: "/assets/React/Cofat/home-light.png",
       homeDark: "/assets/React/Cofat/home-dark.png",
@@ -208,7 +208,7 @@ export const projects = [
       fr: "Un portfolio personnel dynamique et visuellement attrayant présentant les passions de Salma Bargawi pour le tennis, la Porsche 911, les chats et la création de contenu numérique. Le site propose des interactions animées, une intégration des médias sociaux et un design responsive qui reflète sa personnalité vibrante."
     },
     date: "2025-11",
-    demo: "https://salma-portfolio.vercel.app",
+    demo: "https://https://salma-bargawi.netlify.app/",
     github: "https://github.com/yourusername/salma-portfolio",
     status: {
       en: "Completed & Deployed",
@@ -318,7 +318,7 @@ export const projects = [
       fr: "Un hub de liens sociaux et portfolio développeur sophistiqué et animé présentant la présence professionnelle de RASLEN11 sur diverses plateformes. Comprend un thème sombre élégant, des animations interactives et une gestion centralisée des médias sociaux."
     },
     date: "2025-10",
-    demo: "https://raslen11.netlify.app/",
+    demo: "https://raslen-dev.netlify.app/",
     github: "https://github.com/RASLEN11/social-links-portfolio",
     status: {
       en: "Live & Actively Maintained",
