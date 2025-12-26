@@ -1,0 +1,221 @@
+.global-controls {
+  position: fixed;
+  z-index: 1000;
+  display: flex;
+  gap: 0.75rem;
+  pointer-events: auto;
+}
+
+.top-controls {
+  top: 7rem;
+  right: 3.5rem;
+  flex-direction: column;
+}
+
+.bottom-controls {
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  flex-direction: row;
+  background: var(--button-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 4px 20px var(--shadow-color);
+  color: var(--button-text);
+}
+
+.back-to-top-control {
+  position: fixed;
+  bottom: 2.5rem;
+  right: 3.5rem;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: var(--accent-color);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px var(--shadow-color);
+  color: var(--button-text);
+  overflow: hidden;
+}
+
+.back-to-top-control:hover {
+  background: var(--button-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px var(--shadow-color);
+}
+
+.control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: var(--button-bg);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px var(--shadow-color);
+  color: var(--button-text);
+  position: relative;
+  overflow: hidden;
+  min-width: 48px;
+  min-height: 48px;
+}
+
+.control-button:hover {
+  background: var(--button-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--shadow-color);
+}
+
+.theme-control {
+  background: var(--button-bg);
+  color: var(--button-text);
+}
+
+.language-control {
+  background: var(--button-bg);
+  color: var(--button-text);
+}
+
+.mobile-control {
+  background: var(--button-bg);
+  color: var(--button-text);
+  flex-direction: row;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+.mobile-control:hover {
+  background: var(--button-hover);
+}
+
+.control-icon {
+  font-size: 1.25rem;
+  transition: transform 0.3s ease;
+}
+
+.back-to-top-control .control-icon {
+  font-size: 1.5rem;
+}
+
+.control-button:hover .control-icon {
+  transform: rotate(15deg);
+}
+
+.back-to-top-control:hover .control-icon {
+  transform: translateY(-2px);
+}
+
+.control-label {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 0.75rem;
+  white-space: nowrap;
+  background: var(--button-bg);
+  color: var(--button-text);
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  pointer-events: none;
+  z-index: 1002;
+  box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.mobile-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .top-controls {
+    display: none;
+  }
+  
+  .bottom-controls {
+    bottom: 1rem;
+    padding: 0.375rem 0.75rem;
+  }
+  
+  .back-to-top-control {
+    bottom: 5rem;
+    right: 1rem;
+    width: 44px;
+    height: 44px;
+  }
+  
+  .mobile-control {
+    padding: 0.375rem 0.75rem;
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  .control-icon {
+    font-size: 1.125rem;
+  }
+  
+  .back-to-top-control .control-icon {
+    font-size: 1.25rem;
+  }
+  
+  .mobile-label {
+    font-size: 0.8125rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .bottom-controls {
+    display: none;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .control-button,
+  .back-to-top-control {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  .control-button:hover .control-icon,
+  .back-to-top-control:hover .control-icon {
+    transform: none;
+  }
+  
+  .control-button:hover,
+  .back-to-top-control:hover {
+    transform: none;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .control-button,
+  .control-icon,
+  .back-to-top-control {
+    transition: none;
+  }
+  
+  .control-button:hover .control-icon,
+  .back-to-top-control:hover .control-icon {
+    transform: none;
+  }
+  
+  .control-button:hover,
+  .back-to-top-control:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,252 @@
+/* Light Theme Variables */
+.theme-light {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --text-secondary: #666666;
+  --accent-color: #000000;
+  --hover-bg: rgba(0, 0, 0, 0.1);
+  --border-color: rgba(0, 0, 0, 0.1);
+  --header-bg: rgba(255, 255, 255, 0.95);
+  --card-bg: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --button-bg: #000000;
+  --button-text: #ffffff;
+  --button-hover: #333333;
+  --input-bg: #f5f5f5;
+  --input-border: #e0e0e0;
+}
+
+/* Dark Theme Variables */
+.theme-dark {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --text-secondary: #cccccc;
+  --accent-color: #ffffff;
+  --hover-bg: rgba(255, 255, 255, 0.1);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --header-bg: rgba(0, 0, 0, 0.95);
+  --card-bg: #1e1e1e;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --button-bg: #ffffff;
+  --button-text: #000000;
+  --button-hover: #e6e6e6;
+  --input-bg: #2d2d2d;
+  --input-border: #404040;
+}
+
+/* Global Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--hover-bg);
+}
+
+/* Selection Styling */
+::selection {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+}
+
+/* Focus Styles */
+:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* Utility Classes */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-accent {
+  color: var(--accent-color);
+}
+
+.bg-accent {
+  background-color: var(--accent-color);
+}
+
+/* Button Base Styles */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-primary {
+  background-color: var(--accent-color);
+  color: #000000;
+}
+
+.btn-primary:hover {
+  background-color: var(--button-hover);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+}
+
+.btn-secondary:hover {
+  background-color: var(--button-hover);
+  transform: translateY(-2px);
+}
+
+/* Card Styles */
+.card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px var(--shadow-color);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px var(--shadow-color);
+}
+
+/* Form Elements */
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--input-border);
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.input:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(97, 218, 251, 0.1);
+}
+
+/* Animation Classes */
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.slide-up {
+  animation: slideUp 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Typography */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+h3 {
+  font-size: clamp(1.25rem, 3vw, 2rem);
+}
+
+p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* Responsive Utilities */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .btn {
+    padding: 0.625rem 1.25rem;
+  }
+  
+  .card {
+    padding: 1.25rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  * {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  .global-controls,
+  .header {
+    display: none !important;
+  }
+}
