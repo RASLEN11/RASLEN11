@@ -204,8 +204,8 @@ export const projects = [
       fr: "Site Web Portfolio Personnel"
     },
     description: {
-      en: "A dynamic, visually engaging personal portfolio showcasing Salma Bargawi's passions for tennis, Porsche 911, cats, and digital content creation. The site features animated interactions, social media integration, and a responsive design that reflects her vibrant personality.",
-      fr: "Un portfolio personnel dynamique et visuellement attrayant présentant les passions de Salma Bargawi pour le tennis, la Porsche 911, les chats et la création de contenu numérique. Le site propose des interactions animées, une intégration des médias sociaux et un design responsive qui reflète sa personnalité vibrante."
+      en: "A dynamic, visually engaging personal portfolio showcasing .",
+      fr: "Un portfolio personnel dynamique et visuellement attrayant ."
     },
     date: "2025-11",
     demo: "https://https://salma-bargawi.netlify.app/",
