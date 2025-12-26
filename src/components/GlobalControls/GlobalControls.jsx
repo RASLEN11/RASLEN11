@@ -30,8 +30,6 @@ const GlobalControls = () => {
     // Show/hide based on scroll
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
-      const scrollHeight = document.documentElement.scrollHeight;
-      const clientHeight = document.documentElement.clientHeight;
       
       // Show back to top button when scrolled down 300px
       setShowBackToTop(currentScrollPos > 300);

@@ -2,13 +2,13 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FaGithub, FaLinkedin, FaInstagram, FaTiktok, FaFacebook, FaDiscord, FaEnvelope } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
-import { useTheme } from '../../styles/theme'; // Fixed relative path
+//import { useTheme } from '../../styles/theme'; // Fixed relative path
 import { useLanguage } from '../../styles/LanguageContext'; // Fixed relative path
 import './Footer.css';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const { theme } = useTheme();
+  //const { theme } = useTheme(); // Keep if needed for future use
   const { language } = useLanguage();
 
   const navLinks = [

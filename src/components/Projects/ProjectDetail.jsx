@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useTheme } from '../../styles/theme';
 import { useLanguage } from '../../styles/LanguageContext';
 import { projects } from '../../utils/ProjectData';
@@ -39,15 +39,15 @@ const ProjectDetail = () => {
   const [loadingImages, setLoadingImages] = useState(true);
 
   // Function to extract image filename from path
-  const extractImageName = (path) => {
+  const extractImageName = useCallback((path) => {
     if (!path) return null;
     // Extract filename from path like "/src/assets/React/FoodDonation/home.png"
     const parts = path.split('/');
     return parts[parts.length - 1];
-  };
+  }, []);
 
   // Function to find image in imported assets
-  const findImage = (imagePath) => {
+  const findImage = useCallback((imagePath) => {
     if (!imagePath) return null;
     
     const imageName = extractImageName(imagePath);
@@ -66,7 +66,7 @@ const ProjectDetail = () => {
     }
     
     return null;
-  };
+  }, [extractImageName]);
 
   // Initialize images from project data
   useEffect(() => {
@@ -115,7 +115,24 @@ const ProjectDetail = () => {
       setImages(allProjectImages);
       setLoadingImages(false);
     }
-  }, [project, language]);
+  }, [project, language, findImage]);
+
+  // Navigation functions for image gallery
+  const nextImage = useCallback(() => {
+    setCurrentImageIndex((prevIndex) => 
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+    );
+  }, [images.length]);
+
+  const prevImage = useCallback(() => {
+    setCurrentImageIndex((prevIndex) => 
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+  }, [images.length]);
+
+  const goToImage = useCallback((index) => {
+    setCurrentImageIndex(index);
+  }, []);
 
   // Keyboard navigation for gallery
   useEffect(() => {
@@ -136,7 +153,7 @@ const ProjectDetail = () => {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [images.length]);
+  }, [images.length, nextImage, prevImage, goToImage]);
 
   if (!project) {
     return (
@@ -147,23 +164,6 @@ const ProjectDetail = () => {
       </div>
     );
   }
-
-  // Navigation functions for image gallery
-  const nextImage = () => {
-    setCurrentImageIndex((prevIndex) => 
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  const prevImage = () => {
-    setCurrentImageIndex((prevIndex) => 
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
-  };
-
-  const goToImage = (index) => {
-    setCurrentImageIndex(index);
-  };
 
   // Translations
   const translations = {
